@@ -44,7 +44,9 @@
     <Compile Include="Enums\AccountType.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Contracts\IBankingRepository.cs" />
     <Compile Include="Repositories\Contracts\IUserAccountRepository.cs" />
+    <Compile Include="Repositories\Implementation\BankingRepository.cs" />
     <Compile Include="Repositories\Implementation\UserAccountRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
