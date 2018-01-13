@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\MVCATM",
+    "\\MVCATM\\BusinessLogic",
+    "\\MVCATM\\BusinessLogic\\Enums",
+    "\\MVCATM\\BusinessLogic\\Models",
+    "\\MVCATM\\BusinessLogic\\Repositories",
+    "\\MVCATM\\BusinessLogic\\Repositories\\Contracts"
+  ],
+  "SelectedNode": "\\MVCATM\\BusinessLogic\\Repositories\\Contracts\\IUserAccountRepository.cs",
+  "PreviewInSolutionExplorer": false
+}
