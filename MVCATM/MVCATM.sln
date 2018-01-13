@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCATM", "MVCATM\MVCATM.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVCATM.Tests", "MVCATM.Tests\MVCATM.Tests.csproj", "{DA00CA6E-73DF-48F3-8258-47CEDDADC04E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogic", "BusinessLogic\BusinessLogic.csproj", "{B2AC79B4-C49E-4D7B-B274-A671CF439B52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DA00CA6E-73DF-48F3-8258-47CEDDADC04E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA00CA6E-73DF-48F3-8258-47CEDDADC04E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA00CA6E-73DF-48F3-8258-47CEDDADC04E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2AC79B4-C49E-4D7B-B274-A671CF439B52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2AC79B4-C49E-4D7B-B274-A671CF439B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2AC79B4-C49E-4D7B-B274-A671CF439B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2AC79B4-C49E-4D7B-B274-A671CF439B52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
