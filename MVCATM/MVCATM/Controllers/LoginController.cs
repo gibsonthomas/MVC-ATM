@@ -9,7 +9,7 @@ namespace MVCATM.Controllers
 {
     public class LoginController : Controller
     {
-        IUserAccountRepository _repository;
+        readonly IUserAccountRepository _repository;
 
         public LoginController(IUserAccountRepository repository)
         {
