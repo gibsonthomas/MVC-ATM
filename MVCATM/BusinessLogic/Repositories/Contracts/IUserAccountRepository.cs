@@ -1,12 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BusinessLogic.Models;
+using System;
 
 namespace BusinessLogic.Repositories.Contracts
 {
-    public interface IUserAccountRepository
+    public interface IUserAccountRepository : IDisposable
     {
+        UsersAccount GetUser(string username);
+
+        UsersAccount GetUser(Guid uniqueId);
+
+        bool Login(string userName, string password);
+
+        void UpdateUser(UsersAccount userAccount);
+
+        void DeleteUser(int Id);
+
+        void CreateUser(UsersAccount userAccount);
     }
 }
