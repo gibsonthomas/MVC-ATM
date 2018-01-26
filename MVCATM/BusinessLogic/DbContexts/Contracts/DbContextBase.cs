@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 
 namespace BusinessLogic.DbContexts.Contracts
 {
@@ -9,5 +10,7 @@ namespace BusinessLogic.DbContexts.Contracts
         {
 
         }
+
+        
     }
 }

@@ -3,7 +3,7 @@ using System;
 
 namespace BusinessLogic.Repositories.Contracts
 {
-    public interface IUserAccountRepository
+    public interface IUserAccountRepository : IDisposable
     {
         UsersAccount GetUser(string username);
 

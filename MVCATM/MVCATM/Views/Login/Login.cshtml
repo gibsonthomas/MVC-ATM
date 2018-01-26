@@ -11,12 +11,14 @@
         <div class="panel-heading">
             Login
         </div>
-        <div class="panel-body">
-            Username:
-            <input type="text"><br />
-            Password:
-            <input type="password" />
-        </div>
+        @using (Html.BeginForm("ValidateUser", "Login", FormMethod.Post))
+        {
+            <div class="panel-body">
+                Username: @Html.TextBox("username")<br />
+                Password: @Html.Password("password")<br />
+                <input type="submit" value="Login" name="buttonLogin" />
+            </div>
+        }
     </div>
 </div>
 

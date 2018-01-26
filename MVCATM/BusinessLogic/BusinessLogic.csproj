@@ -51,6 +51,7 @@
     <Compile Include="DbContexts\Contracts\UserDbContextBase.cs" />
     <Compile Include="DbContexts\Implementations\UserDbContext.cs" />
     <Compile Include="Enums\AccountType.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Models\UserAccount.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Contracts\IBankingRepository.cs" />
