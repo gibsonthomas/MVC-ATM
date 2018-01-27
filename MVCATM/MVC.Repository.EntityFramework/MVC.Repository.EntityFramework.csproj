@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B2AC79B4-C49E-4D7B-B274-A671CF439B52}</ProjectGuid>
+    <ProjectGuid>{8222204F-E92C-40A3-B2D7-08B7C602254F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BusinessLogic</RootNamespace>
-    <AssemblyName>BusinessLogic</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <RootNamespace>MVC.Repository.EntityFramework</RootNamespace>
+    <AssemblyName>MVC.Repository.EntityFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -47,22 +47,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DbContexts\Contracts\DbContextBase.cs" />
-    <Compile Include="DbContexts\Contracts\UserDbContextBase.cs" />
-    <Compile Include="DbContexts\Implementations\UserDbContext.cs" />
-    <Compile Include="Enums\AccountType.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Models\UserAccount.cs" />
+    <Compile Include="DbContexts\Base\DbContextBase.cs" />
+    <Compile Include="DbContexts\Base\UserDbContextBase.cs" />
+    <Compile Include="DbContexts\UserDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\Contracts\IBankingRepository.cs" />
-    <Compile Include="Repositories\Contracts\IUserAccountRepository.cs" />
-    <Compile Include="Repositories\Implementations\BankingRepository.cs" />
-    <Compile Include="Repositories\Implementations\UserAccountRepository.cs" />
+    <Compile Include="Repositories\BankingRepository.cs" />
+    <Compile Include="Repositories\UserAccountRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\MVC.Models\MVC.Models.csproj">
+      <Project>{0945876A-4358-43E4-BE19-6E5EC3FE7B3E}</Project>
+      <Name>MVC.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MVC.Repository.Contracts\MVC.Repository.Contracts.csproj">
+      <Project>{892275A4-6FBA-4E61-B1F4-D15A1A5BF468}</Project>
+      <Name>MVC.Repository.Contracts</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

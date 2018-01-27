@@ -1,5 +1,4 @@
 ﻿using BusinessLogic.Repositories.Contracts;
-using BusinessLogic.Repositories.Implementations;
 using System.Web.Mvc;
 
 namespace MVCATM.Controllers.Security
@@ -16,7 +15,7 @@ namespace MVCATM.Controllers.Security
 
         public LoginController(IUserAccountRepository repository)
         {
-            _repository = repository ?? new UserAccountRepository();
+            _repository = repository;
         }
 
         public ActionResult Login()

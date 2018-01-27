@@ -1,10 +1,10 @@
-﻿using BusinessLogic.Enums;
+﻿using MVC.Models.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BusinessLogic.Models
+namespace MVC.Models.Models
 {
-    public class UsersAccount
+    public class UserAccount
     {
         [Required]
         public string Username { get; set; }
