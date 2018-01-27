@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BusinessLogic.Models
 {
-    public class UsersAccount
+    public class UserAccount
     {
         [Required]
         public string Username { get; set; }

@@ -5,6 +5,6 @@ namespace BusinessLogic.DbContexts.Contracts
 {
     public class UserDbContextBase : DbContextBase
     {
-        public DbSet<UsersAccount> UserAccount { get; set; }
+        public DbSet<UserAccount> UserAccount { get; set; }
     }
 }

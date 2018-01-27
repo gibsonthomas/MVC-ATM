@@ -5,16 +5,16 @@ namespace BusinessLogic.Repositories.Contracts
 {
     public interface IUserAccountRepository : IDisposable
     {
-        UsersAccount GetUser(string username);
+        UserAccount GetUser(string username);
 
-        UsersAccount GetUser(Guid uniqueId);
+        UserAccount GetUser(Guid uniqueId);
 
         bool Login(string userName, string password);
 
-        void UpdateUser(UsersAccount userAccount);
+        void UpdateUser(UserAccount userAccount);
 
         void DeleteUser(int Id);
 
-        void CreateUser(UsersAccount userAccount);
+        void CreateUser(UserAccount userAccount);
     }
 }

@@ -1,5 +1,4 @@
 ﻿using BusinessLogic.DbContexts.Contracts;
-using BusinessLogic.DbContexts.Implementations;
 using BusinessLogic.Models;
 using BusinessLogic.Repositories.Contracts;
 using System;
@@ -19,10 +18,10 @@ namespace BusinessLogic.Repositories.Implementations
 
         public UserAccountRepository(UserDbContextBase dbContext)
         {
-            _dbContext = dbContext ?? new UserDbContext();
+            _dbContext = dbContext;
         }
 
-        public void CreateUser(UsersAccount userAccount)
+        public void CreateUser(UserAccount userAccount)
         {
             throw new NotImplementedException();
         }
@@ -42,12 +41,12 @@ namespace BusinessLogic.Repositories.Implementations
             GC.SuppressFinalize(this);
         }
 
-        public UsersAccount GetUser(string username)
+        public UserAccount GetUser(string username)
         {
             throw new NotImplementedException();
         }
 
-        public UsersAccount GetUser(Guid uniqueId)
+        public UserAccount GetUser(Guid uniqueId)
         {
             throw new NotImplementedException();
         }
@@ -58,7 +57,7 @@ namespace BusinessLogic.Repositories.Implementations
                 .Any(u => u.Username == userName && u.Password == password);
         }
 
-        public void UpdateUser(UsersAccount userAccount)
+        public void UpdateUser(UserAccount userAccount)
         {
             throw new NotImplementedException();
         }

@@ -13,8 +13,8 @@ namespace BusinessLogic.DbContexts.Implementations
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<UsersAccount>().ToTable("User");
-            modelBuilder.Entity<UsersAccount>().HasKey(u => u.UniqueId);
+            modelBuilder.Entity<UserAccount>().ToTable("User");
+            modelBuilder.Entity<UserAccount>().HasKey(u => u.UniqueId);
         }
     }
 }

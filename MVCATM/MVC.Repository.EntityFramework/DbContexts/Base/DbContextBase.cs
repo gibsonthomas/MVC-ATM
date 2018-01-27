@@ -11,6 +11,6 @@ namespace BusinessLogic.DbContexts.Contracts
 
         }
 
-        
+
     }
 }
