@@ -1,4 +1,4 @@
-﻿namespace BusinessLogic.Enums
+﻿namespace MVC.Models.Enums
 {
     public enum AccountType
     {

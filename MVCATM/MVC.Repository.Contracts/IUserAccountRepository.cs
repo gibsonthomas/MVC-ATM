@@ -1,4 +1,4 @@
-﻿using BusinessLogic.Models;
+﻿using MVC.Models.Models;
 using System;
 
 namespace BusinessLogic.Repositories.Contracts

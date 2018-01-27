@@ -1,8 +1,8 @@
-﻿using BusinessLogic.DbContexts.Contracts;
-using BusinessLogic.Models;
+﻿using MVC.Models.Models;
+using MVC.Repository.EntityFramework.DbContexts.Base;
 using System.Data.Entity;
 
-namespace BusinessLogic.DbContexts.Implementations
+namespace MVC.Repository.EntityFramework.DbContexts
 {
     public class UserDbContext : UserDbContextBase
     {

@@ -1,7 +1,7 @@
-﻿using BusinessLogic.Models;
+﻿using MVC.Models.Models;
 using System.Data.Entity;
 
-namespace BusinessLogic.DbContexts.Contracts
+namespace MVC.Repository.EntityFramework.DbContexts.Base
 {
     public class UserDbContextBase : DbContextBase
     {

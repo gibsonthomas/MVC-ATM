@@ -1,6 +1,6 @@
-﻿using BusinessLogic.DbContexts.Contracts;
-using BusinessLogic.Models;
-using BusinessLogic.Repositories.Contracts;
+﻿using BusinessLogic.Repositories.Contracts;
+using MVC.Models.Models;
+using MVC.Repository.EntityFramework.DbContexts.Base;
 using System;
 using System.Linq;
 

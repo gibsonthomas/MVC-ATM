@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.Entity;
 
-namespace BusinessLogic.DbContexts.Contracts
+namespace MVC.Repository.EntityFramework.DbContexts.Base
 {
     public class DbContextBase : DbContext
     {
