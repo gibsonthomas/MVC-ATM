@@ -1,20 +1,14 @@
-﻿using BusinessLogic.Repositories.Contracts;
-using MVC.Models.Models;
+﻿using MVC.Models.Models;
+using MVC.Repository.Contracts;
 using MVC.Repository.EntityFramework.DbContexts.Base;
 using System;
 using System.Linq;
 
-namespace BusinessLogic.Repositories.Implementations
+namespace MVC.Repository.EntityFramework.Repositories
 {
     public class UserAccountRepository : IUserAccountRepository
     {
         UserDbContextBase _dbContext;
-
-        public UserAccountRepository()
-            : this(null)
-        {
-
-        }
 
         public UserAccountRepository(UserDbContextBase dbContext)
         {

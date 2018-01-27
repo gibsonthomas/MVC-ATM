@@ -1,7 +1,7 @@
 ﻿using MVC.Models.Models;
 using System;
 
-namespace BusinessLogic.Repositories.Contracts
+namespace MVC.Repository.Contracts
 {
     public interface IUserAccountRepository : IDisposable
     {
