@@ -8,7 +8,7 @@ namespace MVC.Repository.EntityFramework.Repositories
 {
     public class UserAccountRepository : IUserAccountRepository
     {
-        UserDbContextBase _dbContext;
+        readonly UserDbContextBase _dbContext;
 
         public UserAccountRepository(UserDbContextBase dbContext)
         {
