@@ -69,6 +69,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\MVC.Models\MVC.Models.csproj">
+      <Project>{0945876A-4358-43E4-BE19-6E5EC3FE7B3E}</Project>
+      <Name>MVC.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MVC.Repository.EntityFramework\MVC.Repository.EntityFramework.csproj">
       <Project>{8222204F-E92C-40A3-B2D7-08B7C602254F}</Project>
       <Name>MVC.Repository.EntityFramework</Name>
