@@ -1,26 +1,21 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using EntityFramework.MoqHelper;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using MVC.Models.Models;
 using MVC.Repository.EntityFramework.DbContexts.Base;
+using MVC.Repository.EntityFramework.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
 
 namespace MVC.Repository.EntityFramework.Test
 {
     [TestClass]
     public class UserAccountRepositoryTest
     {
-        readonly Mock<UserDbContextBase> _mockedUserDbContext = new Mock<UserDbContextBase>();
+        Mock<UserDbContextBase> _mockContext;
 
         [TestInitialize]
-        void Initialize()
-        {
-
-        }
-
-        public void Login_ValidCredentials_ValidatesSuccessfullyTest()
+        public void Initialize()
         {
             var accounts = new List<UserAccount>
             {
@@ -31,16 +26,43 @@ namespace MVC.Repository.EntityFramework.Test
                 UniqueId = Guid.NewGuid(),
                 Username = "gibsonthomas"
                 }
-            }.AsQueryable();
+            };
 
+            var mockSet = EntityFrameworkMoqHelper.CreateMockForDbSet<UserAccount>()
+                .SetupForQueryOn(accounts)
+                .WithAdd(accounts, "UniqueId")
+                .WithFind(accounts, "UniqueId")
+                .WithRemove(accounts);
 
-            var mockedUserAccountDbSet = new Mock<DbSet<UserAccount>>();
-            mockedUserAccountDbSet.As<IQueryable<UserAccount>>().Setup(m => m.Provider).Returns(accounts.Provider);
-            mockedUserAccountDbSet.As<IQueryable<UserAccount>>().Setup(m => m.Expression).Returns(accounts.Expression);
-            mockedUserAccountDbSet.As<IQueryable<UserAccount>>().Setup(m => m.ElementType).Returns(accounts.ElementType);
-            mockedUserAccountDbSet.As<IQueryable<UserAccount>>().Setup(m => m.GetEnumerator()).Returns(() => accounts.GetEnumerator());
+            _mockContext =
+                EntityFrameworkMoqHelper
+                .CreateMockForDbContext<UserDbContextBase, UserAccount>(mockSet);
+        }
 
-            _mockedUserDbContext.Setup(u => u.UserAccount).Returns(mockedUserAccountDbSet.Object);
+        [TestMethod]
+        public void Login_ValidCredentials_ValidatesSuccessfullyTest()
+        {
+            // Arrange
+            var repository = new UserAccountRepository(_mockContext.Object);
+
+            // Act
+            var result = repository.Login("gibsonthomas", "chanakya");
+
+            // Assert
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void Login_InvalidCredentials_FailsTest()
+        {
+            // Arrange
+            var repository = new UserAccountRepository(_mockContext.Object);
+
+            // Act
+            var result = repository.Login("gibsonthomas1", "chanakya1");
+
+            // Assert
+            Assert.AreEqual(false, result);
         }
     }
 }
