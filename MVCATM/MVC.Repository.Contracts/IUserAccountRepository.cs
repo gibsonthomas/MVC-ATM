@@ -1,13 +1,11 @@
 ﻿using MVC.Models.Models;
 using System;
 
-namespace BusinessLogic.Repositories.Contracts
+namespace MVC.Repository.Contracts
 {
     public interface IUserAccountRepository : IDisposable
     {
         UserAccount GetUser(string username);
-
-        UserAccount GetUser(Guid uniqueId);
 
         bool Login(string userName, string password);
 

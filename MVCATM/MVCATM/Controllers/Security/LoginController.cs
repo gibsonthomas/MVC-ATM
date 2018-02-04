@@ -1,4 +1,4 @@
-﻿using BusinessLogic.Repositories.Contracts;
+﻿using MVC.Repository.Contracts;
 using System.Web.Mvc;
 
 namespace MVCATM.Controllers.Security
@@ -6,12 +6,6 @@ namespace MVCATM.Controllers.Security
     public class LoginController : Controller
     {
         readonly IUserAccountRepository _repository;
-
-        public LoginController()
-            : this(null)
-        {
-
-        }
 
         public LoginController(IUserAccountRepository repository)
         {

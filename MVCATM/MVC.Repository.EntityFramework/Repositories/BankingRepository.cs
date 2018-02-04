@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogic.Repositories.Implementations
+namespace MVC.Repository.EntityFramework.Repositories
 {
     public class BankingRepository
     {
