@@ -7,8 +7,6 @@ namespace MVC.Repository.Contracts
     {
         UserAccount GetUser(string username);
 
-        UserAccount GetUser(Guid uniqueId);
-
         bool Login(string userName, string password);
 
         void UpdateUser(UserAccount userAccount);

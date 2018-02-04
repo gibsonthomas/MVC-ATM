@@ -19,5 +19,7 @@ namespace MVC.Models.Models
 
         public AccountType AccountType { get; set; }
 
+        public int Id { get; set; }
+
     }
 }

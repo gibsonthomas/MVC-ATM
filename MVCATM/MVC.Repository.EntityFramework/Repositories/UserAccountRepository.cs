@@ -37,18 +37,14 @@ namespace MVC.Repository.EntityFramework.Repositories
 
         public UserAccount GetUser(string username)
         {
-            throw new NotImplementedException();
+            return _dbContext.UserAccount
+                .FirstOrDefault(u => u.Username == username);
         }
 
-        public UserAccount GetUser(Guid uniqueId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Login(string userName, string password)
+        public bool Login(string username, string password)
         {
             return _dbContext.UserAccount
-                .Any(u => u.Username == userName && u.Password == password);
+                .Any(u => u.Username == username && u.Password == password);
         }
 
         public void UpdateUser(UserAccount userAccount)
