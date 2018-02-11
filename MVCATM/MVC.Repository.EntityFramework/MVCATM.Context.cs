@@ -7,15 +7,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MVCATM
+namespace MVC.Repository.EntityFramework
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MvcBankEntities : DbContext
+    public partial class MvcBankEntitiesDbContext : DbContext
     {
-        public MvcBankEntities()
+        public MvcBankEntitiesDbContext()
             : base("name=MvcBankEntities")
         {
         }
@@ -26,5 +26,9 @@ namespace MVCATM
         }
     
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Balance> Balances { get; set; }
+        public virtual DbSet<ContactDetail> ContactDetails { get; set; }
+        public virtual DbSet<Transaction> Transactions { get; set; }
     }
 }
