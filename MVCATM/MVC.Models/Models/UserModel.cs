@@ -4,15 +4,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MVC.Models.Models
 {
-    public class UserAccount
+    public class UserModel
     {
-        [Required]
+        [Required(ErrorMessage ="Please enter a username.")]
         public string Username { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Please enter the password.")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required]
+        [DataType(DataType.EmailAddress)]
         public string MailId { get; set; }
 
         public Guid UniqueId { get; set; }

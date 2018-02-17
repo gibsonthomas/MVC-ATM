@@ -79,7 +79,7 @@ namespace MVC.Repository.EntityFramework.Test
 
             // Act
             var user = repository.GetUser("gibsonthomas");
-            var result = AutoMapper.Mapper.Map<UserAccount, User>(user);
+            var result = AutoMapper.Mapper.Map<UserModel, User>(user);
 
             // Assert
             Assert.IsNotNull(result);

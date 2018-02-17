@@ -5,6 +5,6 @@ namespace MVC.Repository.EntityFramework.DbContexts.Base
 {
     public class UserDbContextBase : DbContextBase
     {
-        public DbSet<UserAccount> UserAccount { get; set; }
+        public DbSet<UserModel> UserAccount { get; set; }
     }
 }

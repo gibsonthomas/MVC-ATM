@@ -1,6 +1,5 @@
 ﻿using MVC.Models.Models;
 using MVC.Repository.Contracts;
-using MVC.Repository.EntityFramework.DbContexts.Base;
 using System;
 using System.Linq;
 
@@ -8,16 +7,15 @@ namespace MVC.Repository.EntityFramework.Repositories
 {
     public class UserAccountRepository : IUserAccountRepository
     {
-        //readonly UserDbContextBase _dbContext;
-        readonly MvcBankEntitiesDbContext _dbContext1;
+        readonly MvcBankEntitiesDbContext _dbContext;
 
         public UserAccountRepository(MvcBankEntitiesDbContext dbContext)
         {
-            _dbContext1 = dbContext;
+            _dbContext = dbContext;
             AutoMapper.Initialize();
         }
 
-        public void CreateUser(UserAccount userAccount)
+        public void CreateUser(UserModel userAccount)
         {
             throw new NotImplementedException();
         }
@@ -29,29 +27,29 @@ namespace MVC.Repository.EntityFramework.Repositories
 
         public void Dispose()
         {
-            if (_dbContext1 != null)
+            if (_dbContext != null)
             {
-                _dbContext1.Dispose();
+                _dbContext.Dispose();
             }
 
             GC.SuppressFinalize(this);
         }
 
-        public UserAccount GetUser(string username)
+        public UserModel GetUser(string username)
         {
-            var dbUser = _dbContext1.Users
+            var dbUser = _dbContext.Users
                 .FirstOrDefault(u => u.Username == username);
-            var user = AutoMapper.Mapper.Map<User, UserAccount>(dbUser);
+            var user = AutoMapper.Mapper.Map<User, UserModel>(dbUser);
             return user;
         }
 
         public bool Login(string username, string password)
         {
-            return _dbContext1.Users
+            return _dbContext.Users
                 .Any(u => u.Username == username && u.Password == password);
         }
 
-        public void UpdateUser(UserAccount userAccount)
+        public void UpdateUser(UserModel userAccount)
         {
             throw new NotImplementedException();
         }
