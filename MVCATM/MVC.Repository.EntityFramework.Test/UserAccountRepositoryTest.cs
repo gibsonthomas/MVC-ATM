@@ -1,4 +1,5 @@
 ﻿using EntityFramework.MoqHelper;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using MVC.Models.Models;
@@ -22,12 +23,12 @@ namespace MVC.Repository.EntityFramework.Test
             _users = new List<User>
             {
                 new User{
-                AccountType = (int)Models.Enums.AccountType.PowerUser,
-                MailId = "gibson.thomas@ust-global.com",
-                Password = "chanakya",
-                UniqueId = Guid.NewGuid(),
-                Username = "gibsonthomas",
-                Id = 3
+                    AccountType = (int)Models.Enums.AccountType.PowerUser,
+                    MailId = "gibson.thomas@ust-global.com",
+                    Password = "chanakya",
+                    UniqueId = Guid.NewGuid(),
+                    Username = "gibsonthomas",
+                    Id = 3
                 }
             };
 
@@ -41,7 +42,7 @@ namespace MVC.Repository.EntityFramework.Test
                 EntityFrameworkMoqHelper
                 .CreateMockForDbContext<MvcBankEntitiesDbContext, User>(mockSet);
 
-            AutoMapper.Initialize();
+            //AutoMapper.Initialize();
         }
 
         [TestMethod]
@@ -77,11 +78,12 @@ namespace MVC.Repository.EntityFramework.Test
             var repository = new UserAccountRepository(_mockContext.Object);
 
             // Act
-            var result = AutoMapper.Mapper.Map<UserAccount, User>(repository.GetUser("gibsonthomas"));
+            var user = repository.GetUser("gibsonthomas");
+            var result = AutoMapper.Mapper.Map<UserAccount, User>(user);
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.IsTrue(result == _users.First());
+            result.Should().BeEquivalentTo(_users.First());
         }
 
         [TestMethod]

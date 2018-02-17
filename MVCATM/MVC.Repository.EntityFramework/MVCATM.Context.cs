@@ -22,13 +22,12 @@ namespace MVC.Repository.EntityFramework
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Account> Accounts { get; set; }
-        public virtual DbSet<Balance> Balances { get; set; }
-        public virtual DbSet<ContactDetail> ContactDetails { get; set; }
-        public virtual DbSet<Transaction> Transactions { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Balance> Balances { get; set; }
+        public DbSet<ContactDetail> ContactDetails { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
     }
 }
