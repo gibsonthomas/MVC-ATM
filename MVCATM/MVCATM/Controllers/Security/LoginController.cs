@@ -1,4 +1,6 @@
-﻿using MVC.Repository.Contracts;
+﻿using MVC.Models.Models;
+using MVC.Repository.Contracts;
+using System;
 using System.Web.Mvc;
 
 namespace MVCATM.Controllers.Security
@@ -17,20 +19,34 @@ namespace MVCATM.Controllers.Security
             return View();
         }
 
-        public ActionResult ValidateUser(string username, string password)
+        [HttpPost]
+        public ActionResult Login(UserModel model)
         {
-            var result = _repository.Login(username, password);
-
-            if(result)
+            if (ModelState.IsValid)
             {
+                var result = false;
 
+                try
+                {
+                    result = _repository.Login(model.Username, model.Password);
+                }
+                catch (Exception)
+                {
+                    ViewBag.LoginStatus = "failed";
+                }
+
+                if (result)
+                {
+                    ViewBag.LoginStatus = "success";
+                    return RedirectToAction("Home", "Account");
+                }
+                else
+                {
+                    ViewBag.LoginStatus = "nouser";
+                }
             }
-            else
-            {
 
-            }
-
-            return View();
+            return View(nameof(Login));
         }
 
         protected override void Dispose(bool disposing)

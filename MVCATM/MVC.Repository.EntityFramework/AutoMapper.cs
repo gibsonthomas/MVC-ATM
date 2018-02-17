@@ -21,9 +21,9 @@ namespace MVC.Repository.EntityFramework
 
         private static void DoMap(IMapperConfigurationExpression configuration)
         {
-            configuration.CreateMap<User, UserAccount>()
+            configuration.CreateMap<User, UserModel>()
                 .ForMember(ua => ua.AccountType, m => m.MapFrom(u => (AccountType)u.AccountType.Value));
-            configuration.CreateMap<UserAccount, User>()
+            configuration.CreateMap<UserModel, User>()
                 .ForMember(u => u.AccountType, m => m.MapFrom(ua => (byte)ua.AccountType));
         }
 

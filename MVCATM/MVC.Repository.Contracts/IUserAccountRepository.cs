@@ -5,14 +5,14 @@ namespace MVC.Repository.Contracts
 {
     public interface IUserAccountRepository : IDisposable
     {
-        UserAccount GetUser(string username);
+        UserModel GetUser(string username);
 
         bool Login(string userName, string password);
 
-        void UpdateUser(UserAccount userAccount);
+        void UpdateUser(UserModel userAccount);
 
         void DeleteUser(int Id);
 
-        void CreateUser(UserAccount userAccount);
+        void CreateUser(UserModel userAccount);
     }
 }
