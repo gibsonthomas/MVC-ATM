@@ -7,24 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MVCATM
+namespace MVC.Repository.EntityFramework
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MvcBankEntities : DbContext
+    public partial class MvcBankEntitiesDbContext : DbContext
     {
-        public MvcBankEntities()
+        public MvcBankEntitiesDbContext()
             : base("name=MvcBankEntities")
         {
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<User> Users { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Account> Accounts { get; set; }
+        public DbSet<Balance> Balances { get; set; }
+        public DbSet<ContactDetail> ContactDetails { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
     }
 }

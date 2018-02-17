@@ -1,4 +1,5 @@
 ﻿using EntityFramework.MoqHelper;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using MVC.Models.Models;
@@ -13,25 +14,25 @@ namespace MVC.Repository.EntityFramework.Test
     [TestClass]
     public class UserAccountRepositoryTest
     {
-        Mock<UserDbContextBase> _mockContext;
-        List<UserAccount> _users;
+        Mock<MvcBankEntitiesDbContext> _mockContext;
+        List<User> _users;
 
         [TestInitialize]
         public void Initialize()
         {
-            _users = new List<UserAccount>
+            _users = new List<User>
             {
-                new UserAccount{
-                AccountType = Models.Enums.AccountType.PowerUser,
-                MailId = "gibson.thomas@ust-global.com",
-                Password = "chanakya",
-                UniqueId = Guid.NewGuid(),
-                Username = "gibsonthomas",
-                Id = 3
+                new User{
+                    AccountType = (int)Models.Enums.AccountType.PowerUser,
+                    MailId = "gibson.thomas@ust-global.com",
+                    Password = "chanakya",
+                    UniqueId = Guid.NewGuid(),
+                    Username = "gibsonthomas",
+                    Id = 3
                 }
             };
 
-            var mockSet = EntityFrameworkMoqHelper.CreateMockForDbSet<UserAccount>()
+            var mockSet = EntityFrameworkMoqHelper.CreateMockForDbSet<User>()
                 .SetupForQueryOn(_users)
                 .WithAdd(_users, "Id")
                 .WithFind(_users, "Id")
@@ -39,7 +40,9 @@ namespace MVC.Repository.EntityFramework.Test
 
             _mockContext =
                 EntityFrameworkMoqHelper
-                .CreateMockForDbContext<UserDbContextBase, UserAccount>(mockSet);
+                .CreateMockForDbContext<MvcBankEntitiesDbContext, User>(mockSet);
+
+            //AutoMapper.Initialize();
         }
 
         [TestMethod]
@@ -75,11 +78,12 @@ namespace MVC.Repository.EntityFramework.Test
             var repository = new UserAccountRepository(_mockContext.Object);
 
             // Act
-            var result = repository.GetUser("gibsonthomas");
+            var user = repository.GetUser("gibsonthomas");
+            var result = AutoMapper.Mapper.Map<UserAccount, User>(user);
 
             // Assert
             Assert.IsNotNull(result);
-            Assert.IsTrue(result == _users.First());
+            result.Should().BeEquivalentTo(_users.First());
         }
 
         [TestMethod]

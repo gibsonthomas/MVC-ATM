@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -39,6 +42,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,15 +52,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs">
+      <DependentUpon>MVCATM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoMapper.cs" />
+    <Compile Include="Balance.cs">
+      <DependentUpon>MVCATM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContactDetail.cs">
+      <DependentUpon>MVCATM.tt</DependentUpon>
+    </Compile>
     <Compile Include="DbContexts\Base\DbContextBase.cs" />
     <Compile Include="DbContexts\Base\UserDbContextBase.cs" />
     <Compile Include="DbContexts\UserDbContext.cs" />
+    <Compile Include="MVCATM.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCATM.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MVCATM.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCATM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MVCATM.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MVCATM.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\BankingRepository.cs" />
     <Compile Include="Repositories\UserAccountRepository.cs" />
+    <Compile Include="Transaction.cs">
+      <DependentUpon>MVCATM.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>MVCATM.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <EntityDeploy Include="MVCATM.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MVCATM.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="MVCATM.edmx.diagram">
+      <DependentUpon>MVCATM.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +110,21 @@
       <Project>{892275A4-6FBA-4E61-B1F4-D15A1A5BF468}</Project>
       <Name>MVC.Repository.Contracts</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MVCATM.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MVCATM.edmx</DependentUpon>
+      <LastGenOutput>MVCATM.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="MVCATM.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MVCATM.edmx</DependentUpon>
+      <LastGenOutput>MVCATM.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
