@@ -12,27 +12,24 @@ namespace MVC.Repository.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class Account
+    public partial class Permission
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Account()
+        public Permission()
         {
-            this.Balances = new HashSet<Balance>();
-            this.ContactDetails = new HashSet<ContactDetail>();
-            this.Transactions = new HashSet<Transaction>();
+            this.PermissionGroups = new HashSet<PermissionGroup>();
+            this.PermissionMappings = new HashSet<PermissionMapping>();
         }
     
         public int Id { get; set; }
-        public string Number { get; set; }
-        public Nullable<short> Type { get; set; }
-        public int UserId { get; set; }
+        public System.Guid UniqueId { get; set; }
+        public string Name { get; set; }
+        public string Category { get; set; }
+        public bool Allow { get; set; }
     
-        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Balance> Balances { get; set; }
+        public virtual ICollection<PermissionGroup> PermissionGroups { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ContactDetail> ContactDetails { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Transaction> Transactions { get; set; }
+        public virtual ICollection<PermissionMapping> PermissionMappings { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace MVC.Repository.EntityFramework.Test
     [TestClass]
     public class UserAccountRepositoryTest
     {
-        Mock<MvcBankEntitiesDbContext> _mockContext;
+        Mock<MvcBankEntities1> _mockContext;
         List<User> _users;
 
         [TestInitialize]
@@ -23,7 +23,7 @@ namespace MVC.Repository.EntityFramework.Test
             _users = new List<User>
             {
                 new User{
-                    AccountType = (int)Models.Enums.AccountType.PowerUser,
+                    UserType = (byte)Models.Enums.AccountType.PowerUser,
                     MailId = "gibson.thomas@ust-global.com",
                     Password = "chanakya",
                     UniqueId = Guid.NewGuid(),
@@ -40,7 +40,7 @@ namespace MVC.Repository.EntityFramework.Test
 
             _mockContext =
                 EntityFrameworkMoqHelper
-                .CreateMockForDbContext<MvcBankEntitiesDbContext, User>(mockSet);
+                .CreateMockForDbContext<MvcBankEntities1, User>(mockSet);
 
             //AutoMapper.Initialize();
         }
