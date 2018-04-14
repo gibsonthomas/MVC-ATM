@@ -7,9 +7,9 @@ namespace MVC.Repository.EntityFramework.Repositories
 {
     public class UserAccountRepository : IUserAccountRepository
     {
-        readonly MvcBankEntitiesDbContext _dbContext;
+        readonly MvcBankEntities1 _dbContext;
 
-        public UserAccountRepository(MvcBankEntitiesDbContext dbContext)
+        public UserAccountRepository(MvcBankEntities1 dbContext)
         {
             _dbContext = dbContext;
             AutoMapper.Initialize();

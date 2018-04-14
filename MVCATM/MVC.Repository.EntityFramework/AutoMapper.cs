@@ -22,9 +22,9 @@ namespace MVC.Repository.EntityFramework
         private static void DoMap(IMapperConfigurationExpression configuration)
         {
             configuration.CreateMap<User, UserModel>()
-                .ForMember(ua => ua.AccountType, m => m.MapFrom(u => (AccountType)u.AccountType.Value));
+                .ForMember(ua => ua.AccountType, m => m.MapFrom(u => (AccountType)u.UserType));
             configuration.CreateMap<UserModel, User>()
-                .ForMember(u => u.AccountType, m => m.MapFrom(ua => (byte)ua.AccountType));
+                .ForMember(u => u.UserType, m => m.MapFrom(ua => (byte)ua.AccountType));
         }
 
         public static IMapper Mapper

@@ -12,25 +12,21 @@ namespace MVC.Repository.EntityFramework
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class PermissionGroup
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public PermissionGroup()
         {
-            this.Accounts = new HashSet<Account>();
-            this.Transactions = new HashSet<Transaction>();
+            this.PermissionMappings = new HashSet<PermissionMapping>();
         }
     
         public int Id { get; set; }
-        public string Username { get; set; }
-        public string Password { get; set; }
-        public string MailId { get; set; }
-        public System.Guid UniqueId { get; set; }
-        public byte UserType { get; set; }
+        public int PermissionId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
     
+        public virtual Permission Permission { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Account> Accounts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Transaction> Transactions { get; set; }
+        public virtual ICollection<PermissionMapping> PermissionMappings { get; set; }
     }
 }

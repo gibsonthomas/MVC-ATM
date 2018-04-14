@@ -7,7 +7,7 @@
 <div class="container">
     <h2>Login</h2>
     <div class="row">
-        <div class="col-md-offset-6">
+        <div class="col-md-offset-8">
             <div class="panel panel-info">
                 <div class="panel-heading">
                     Login
@@ -16,37 +16,39 @@
                 {
 
                     <div class="panel-body">
-                        <div class="col-md-3">
-                            @Html.LabelFor(m => m.Username):
+                        <div class="row">
+                            <div class="col-md-4">
+                                @Html.LabelFor(m => m.Username)*:
+                            </div>
+                            <div class="col-md-8">
+                                 @Html.EditorFor(m => m.Username, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
                         </div>
-                        <div class="col-md-5">
-                            @Html.EditorFor(m => m.Username)
+                        <div class="row">
+                            <div class="col-md-4">
+                                @Html.LabelFor(m => m.Password)*:
+                            </div>
+                            <div class="col-md-8">
+                                @Html.EditorFor(m => m.Password, new { htmlAttributes = new { @class = "form-control" } })
+                            </div>
                         </div>
-                        <div class="col-md-4">
-                            * @Html.ValidationMessageFor(m => m.Username, null, new { @class = "text-danger" })
-                        </div>
-
-                        <div class="col-md-3">
-                            @Html.LabelFor(m => m.Password):
-                        </div> <div class="col-md-5">
-                            @Html.EditorFor(m => m.Password)
-                        </div>
-                        <div class="col-md-4">
-                            * @Html.ValidationMessageFor(m => m.Password, null, new { @class = "text-danger" })
-                        </div>
-                        <div class="col-md-2">
-                            <input type="submit" class="btn-primary btn" value="Login" name="buttonLogin" />
-                        </div>
-                        <div class="col-md-10">
-                            <div class="form-group error text-danger">
-                                @if (ViewBag.LoginStatus == "nouser")
-                                {
-                                    <label>User not found.</label>
-                                }
-                                else if (ViewBag.LoginStatus == "failed")
-                                {
-                                    <label>An error occured while processing the user request.</label>
-                                }
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group error text-danger">
+                                    @if (ViewBag.LoginStatus == "nouser")
+                                    {
+                                        <label>User not found.</label>
+                                    }
+                                    else if (ViewBag.LoginStatus == "failed")
+                                    {
+                                        <label>An error occured while processing the user request.</label>
+                                    }
+                                    @Html.ValidationMessageFor(m => m.Password, null, new { @class = "form-group error text-danger" })
+                                    @Html.ValidationMessageFor(m => m.Username, null, new { @class = "form-group error text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-right">
+                                <input type="submit" class="btn-primary btn" value="Login" name="buttonLogin" />
                             </div>
                         </div>
                     </div>

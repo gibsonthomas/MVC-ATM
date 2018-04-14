@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="521e41d6082946abba6b81cda504dfad" Name="Diagram1" ZoomLevel="100">
+        <EntityTypeShape EntityType="MvcBankModel.Account" Width="1.5" PointX="2.875" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcBankModel.Balance" Width="1.5" PointX="5.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcBankModel.ContactDetail" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcBankModel.Transaction" Width="1.5" PointX="7.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MvcBankModel.User" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="MvcBankModel.FK_Account_User" ManuallyRouted="false" />
+        <AssociationConnector Association="MvcBankModel.FK_Balance_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="MvcBankModel.FK_ContactDetails_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="MvcBankModel.FK_Transaction_Account" ManuallyRouted="false" />
+        <AssociationConnector Association="MvcBankModel.FK_Transaction_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MvcBankModel.Permission" Width="1.5" PointX="1" PointY="5.5" />
+        <EntityTypeShape EntityType="MvcBankModel.PermissionGroup" Width="1.5" PointX="3.25" PointY="5.5" />
+        <EntityTypeShape EntityType="MvcBankModel.PermissionMapping" Width="1.875" PointX="5.5" PointY="5.625" />
+        <AssociationConnector Association="MvcBankModel.FK_PermissionGroup_Permission" />
+        <AssociationConnector Association="MvcBankModel.FK_PermissionMapping_Permission" />
+        <AssociationConnector Association="MvcBankModel.FK_PermissionMapping_PermissionGroup" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
